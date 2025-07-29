@@ -1,0 +1,3 @@
+sample	countmtx_annot	countmtx_raw	cell_metadata
+pool1	assets/input_examples/countmtx_annot/annotated_countmtx.pool1.h5ad	/path/to/cellranger/count/pool1/outs/raw_feature_bc_matrix	assets/input_examples/cell_meta/cell_metadata.pool1.tsv
+pool2	assets/input_examples/countmtx_annot/annotated_countmtx.pool2.h5ad	/path/to/cellranger/count/pool2/outs/raw_feature_bc_matrix	assets/input_examples/cell_meta/cell_metadata.pool2.tsv

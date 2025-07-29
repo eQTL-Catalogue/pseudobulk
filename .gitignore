@@ -1,0 +1,6 @@
+._*
+.nextflow
+.vscode
+results*
+work
+*.out
