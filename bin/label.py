@@ -6,7 +6,7 @@ import scanpy as sc
 import matplotlib.pyplot as plt
 
 countmtx = sc.read_10x_mtx(sys.argv[1], gex_only=True)
-cell_meta = pd.read_csv(sys.argv[2], sep='\t', index_col=0)
+cell_meta = pd.read_csv(sys.argv[2], sep='\t', index_col='cell_id', dtype={'cell_id': str})
 outpath_raw = sys.argv[3]
 outpath_norm = sys.argv[4]
 sample_id = sys.argv[5]
