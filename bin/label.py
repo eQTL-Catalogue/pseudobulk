@@ -14,6 +14,13 @@ sample_id = sys.argv[5]
 n_countmtx_cells = countmtx.n_obs
 n_meta_cells = cell_meta.shape[0]
 
+# Save the metadata cells that are not in the raw count matrix
+meta_in_countmtx = cell_meta.index.isin(countmtx.obs.index)
+if not meta_in_countmtx.any():
+    raise ValueError("No metadata cell barcodes match the count matrix!")
+pd.Series(cell_meta.index[~meta_in_countmtx]).to_csv('meta_cells_not_in_countmtx.txt', header=False, index=False)
+cell_meta = cell_meta[meta_in_countmtx]
+
 # Add the individual and cell type labels to the anndata object
 countmtx = countmtx[cell_meta.index]  # Filter the countmtx for cells in the metadata
 countmtx.obs[['individual', 'celltype']] = cell_meta[['individual', 'celltype']]  # Add the individual and cell type labels to the countmtx

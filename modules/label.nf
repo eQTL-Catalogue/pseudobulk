@@ -18,4 +18,5 @@ process LABEL {
     tuple val(sample_id), path(labelled_countmtx_norm), emit: countmtx_ch
     path(labelled_countmtx_raw)
     path("*.png")
+    path("meta_cells_not_in_countmtx.txt")
 }
